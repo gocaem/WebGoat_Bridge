@@ -26,8 +26,10 @@ pipeline {
                         status = sh returnStatus: true, script: '''
                             curl -fLsS -o bridge.zip $BRIDGECLI_LINUX64 && unzip -qo -d $WORKSPACE_TMP bridge.zip && rm -f bridge.zip
                             $WORKSPACE_TMP/synopsys-bridge --verbose --stage polaris \
-                                polaris.branch.name=$BRANCH_NAME
-  //                      '''
+                                polaris.branch.name=$BRANCH_NAME \
+                                polaris.application.name="<APPLICATION_NAME>" \
+                                polaris.assessment.types=SAST,SCA \
+                                polaris.serverurl="<SERVERURL>"
                         if (status == 8) { unstable 'policy violation' }
                         else if (status != 0) { error 'scan failure' }
                     }
