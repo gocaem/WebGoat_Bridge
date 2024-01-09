@@ -1,9 +1,9 @@
 pipeline {
     agent any
-    tools {
-        maven 'maven-3.9'
-        jdk 'openjdk-17'
-    }
+   // tools {
+   //     maven 'maven-3.9'
+    //    jdk 'openjdk-17'
+    //}
     environment {
         REPO_NAME = "${env.GIT_URL.tokenize('/.')[-2]}"
         //BRIDGECLI_LINUX64 = 'https://sig-repo.synopsys.com/artifactory/bds-integrations-release/com/synopsys/integration/synopsys-bridge/latest/synopsys-bridge-linux64.zip'
@@ -12,12 +12,12 @@ pipeline {
         BRIDGE_POLARIS_PROJECT_NAME = "${env.REPO_NAME}"
         BRIDGE_POLARIS_ASSESSMENT_TYPES = 'SAST,SCA'
     }
-    stages {
-        stage('Build') {
-            steps {
-                sh 'mvn -B package'
-            }
-        }
+   // stages {
+   //     stage('Build') {
+   //         steps {
+   //             sh 'mvn -B package'
+   //         }
+   //     }
         stage('Polaris Full Scan') {
             when { not { changeRequest() } }
             steps {
