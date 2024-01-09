@@ -2,7 +2,7 @@ pipeline {
     agent any
     tools {
         maven 'maven-3.9'
-    //    jdk 'openjdk-17'
+        jdk 'openjdk-17'
     }
     environment {
         REPO_NAME = "${env.GIT_URL.tokenize('/.')[-2]}"
