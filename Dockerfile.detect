@@ -2,7 +2,7 @@
 # https://sig-product-docs.synopsys.com/bundle/integrations-detect/page/runningdetect/runincontainer.html
 # https://github.com/blackducksoftware/synopsys-detect-docker
 
-FROM maven:3-eclipse-temurin-17
+FROM maven:3-eclipse-temurin-21
 
 # Update
 RUN apt-get update
