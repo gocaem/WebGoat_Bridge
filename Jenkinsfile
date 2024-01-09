@@ -38,10 +38,10 @@ pipeline {
             }
         }
     }
-    post {
-        always {
+  //  post {
+  //      always {
             //zip archive: true, dir: '.bridge', zipFile: 'bridge-logs.zip'
             //cleanWs()
-        }
-    }
+      //  }
+  //  }
 }
