@@ -12,7 +12,7 @@ pipeline {
         BRIDGE_POLARIS_PROJECT_NAME = "${env.REPO_NAME}"
         BRIDGE_POLARIS_ASSESSMENT_TYPES = 'SAST,SCA'
     }
-   // stages {
+   stages {
    //     stage('Build') {
    //         steps {
    //             sh 'mvn -B package'
