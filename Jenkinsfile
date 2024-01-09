@@ -32,6 +32,7 @@ pipeline {
                                 polaris.serverurl=$BRIDGE_POLARIS_SERVERURL
                         '''
                         if (status == 8) { unstable 'policy violation' }
+                        else if (status == 2) { unstable 'Synopsys Bridge received a non-0 exit code from an internal adapter. Review the log file for details.' }
                         else if (status != 0) { error 'scan failure' }
                     }
                 }
